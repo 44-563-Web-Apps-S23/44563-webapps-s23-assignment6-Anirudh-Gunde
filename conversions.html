@@ -46,25 +46,23 @@
         function chooseOp() {
             const baseValue = Number(document.getElementById("base").value);
             const conversionValue = Number(document.getElementById("conversion").value);
-            let toShow = "";
+            let showOut = "";
             if(document.getElementById("rg1_avg").checked){
                 const value = (baseValue + conversionValue)/2;
-                toShow = "average of "+baseValue+" and "+ conversionValue +" is "+value;
-                console.log(toShow);
+                showOut = "average of "+baseValue+" and "+ conversionValue +" is "+value;
             }
             else if(document.getElementById("rg1_max").checked)
             {
                 const value = Math.max(baseValue,conversionValue);
-                toShow = "max of "+baseValue+" and "+ conversionValue +" is "+value;
-                console.log(toShow);
+                showOut = "max of "+baseValue+" and "+ conversionValue +" is "+value;
+             
             }
             else if(document.getElementById("rg1_min").checked)
             {
                 const value = Math.min(baseValue,conversionValue);
-                toShow = "min of "+baseValue+" and "+ conversionValue +" is "+value;
-                console.log(toShow);
+                showOut = "min of "+baseValue+" and "+ conversionValue +" is "+value;
             }
-            document.getElementById("rg1").textContent = toShow;
+            document.getElementById("rg1").innerHTML =showOut ;
         }
     </script>
 </body>

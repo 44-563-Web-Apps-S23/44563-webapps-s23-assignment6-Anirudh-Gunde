@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Conversions in JS and HTML</title>
+</head>
+
+<body>
+    <h1>Anirudh Gunde shows currency conversions</h1>
+    <label for="base">Enter base amount:</label>
+    <input type="number" id="base" value="50">
+    <label for="conversion">Enter the conversion rate:</label>
+    <input type="number" id="conversion" value="35">
+    <br><br>
+    <button onclick="convert()">Show conversions</button>
+    <br><br>
+    <p id="results"></p>
+
+    <form>
+        <input type="radio" id="rg1_avg" onclick="chooseOp()"  name="color" value="mean"   
+          checked >
+        <label for="rg1_avg">average</label></br>
+      
+        <input type="radio" id="rg1_max" onclick="chooseOp()" name="color" 
+           value="maximum">
+        <label for="rg1_max">max</label></br>
+      
+        <input type="radio" id="rg1_min" onclick="chooseOp()" name="color"   
+           value="minimum">
+        <label for="rg1_min">min</label></br>
+    </form>
+      <p id="rg1"></p>
+
+    <script>
+        function convert() {
+            const baseValue = Number(document.getElementById("base").value);
+            const conversionValue = Number(document.getElementById("conversion").value);
+            let toShow = "";
+            for (let i = 0; i < 5; i++) {
+                const value = baseValue * Math.pow(2, i);
+                const convertedValue = value * conversionValue;
+                toShow += value + " is " + convertedValue.toFixed(1) + "; ";
+            }
+            document.getElementById("results").textContent = "Conversions are: " + toShow;
+        }
+        function chooseOp() {
+            const baseValue = Number(document.getElementById("base").value);
+            const conversionValue = Number(document.getElementById("conversion").value);
+            let toShow = "";
+            if(document.getElementById("rg1_avg").checked){
+                const value = (baseValue + conversionValue)/2;
+                toShow = "average of "+baseValue+" and "+ conversionValue +" is "+value;
+                console.log(toShow);
+            }
+            else if(document.getElementById("rg1_max").checked)
+            {
+                const value = Math.max(baseValue,conversionValue);
+                toShow = "max of "+baseValue+" and "+ conversionValue +" is "+value;
+                console.log(toShow);
+            }
+            else if(document.getElementById("rg1_min").checked)
+            {
+                const value = Math.min(baseValue,conversionValue);
+                toShow = "min of "+baseValue+" and "+ conversionValue +" is "+value;
+                console.log(toShow);
+            }
+            document.getElementById("rg1").textContent = toShow;
+        }
+    </script>
+</body>
+
+</html>

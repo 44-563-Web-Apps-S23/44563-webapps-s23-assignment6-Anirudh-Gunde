@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Candy of JS</title>
+    </head>
+<body>
+
+<h1>Anirudh Gunde chooses candy</h1>
+<form>
+   
+        <input type="checkbox" id="dark" name="Dark Chocolate" value="yes"> Dark Chocolate  <br> 
+        <input type="checkbox" id="nuts" name="Nuts" value="yes"> Nuts <br>
+        <input type="checkbox" id="chewy" name="Chewy" value="yes"> Chewy <br>
+    
+        <input type="button" onclick="selectBox()" value="Select a box">
+</form>
+<p id="check"></p>
+<form>
+    Enter the size<input type="text" id="name" name="name" value="size"><br>
+    Enter price<input type="text" id="price" name="price"><br>
+    
+    <input type="button" onclick="updateBox()" value="Update the box">
+</form>
+
+
+
+
+<script> 
+var my_candy_box = {};
+function selectBox()
+{
+    my_candy_box = {};
+    my_candy_box.dark = document.getElementById("dark").checked;
+  my_candy_box.nuts = document.getElementById("nuts").checked;
+  my_candy_box.chewy = document.getElementById("chewy").checked;
+  document.getElementById("check").innerHTML = JSON.stringify(my_candy_box);
+}
+function updateBox()
+{
+   
+    my_candy_box.name = document.getElementById("name").value;
+    my_candy_box.price = document.getElementById("price").value;
+    document.getElementById("check").innerHTML = JSON.stringify(my_candy_box);
+}
+</script>
+
+</body>
+</html> 

@@ -3,18 +3,56 @@
     <head>
         <title>Painter with Javascript Interaction</title>
     </head>
+
 <body>
+  <style>
+  input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+input[type=button] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+</style>
 <h1>Anirudh Gunde Painter entry</h1>
 <h2>Getting input</h2>
+<div>
 <form>
-    <label for="form1_password">The hidden painter name </label>
+    <label for="form1_password">The hidden painter name     </label>
     <input type ="password" id="form1_password" name="form1_password" value=Monet min=10 max=50 step=2 > <br>
 
-    <label for="form1_painter">Guess the painter </label>
+    <label for="form1_painter">Guess the painter            </label>
     <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
 
     <input type="button" onclick="checkPainter()" value="Check the guess">
 </form>
+</div>
 <p id="result">Guess Count</p>
 <div class="container">
 
@@ -38,15 +76,19 @@ function checkPainter(){
     }
     else
     {
+      if(oops==10){
+        alert("Sorry, ran out of guesses")
+      }
+      else{
         oops = oops+1;
         alert("Sorry")
         document.getElementById("result").innerHTML=oops;
+      }
+        
     }
 }
-
 function selectImage()
 {
-  
     switch(useImage) {
       case 1:
         document.getElementById("theImg").src="GALTONIA.jpg";
@@ -60,7 +102,6 @@ function selectImage()
         document.getElementById("theImg").src="ulex.jpg";
         useImage=1;
           break;
-
     }
 }
 </script>
